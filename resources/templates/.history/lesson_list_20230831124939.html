@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者講座一覧</title>
+    <link rel="stylesheet" href="adminLesson.css">
+</head>
+
+<body>
+    <header>
+        <a href="lesson_list.html" class="add">講座列表</a>
+        <a href="admin_edit_lesson.html" class="add">講座登録</a>
+        <a href="admin_login.html " class="adminLogin">ログアウト</a>
+    </header>
+
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>講座列表</title>
+    </head>
+
+    <!-- <body>
+        <h1>講座列表</h1>
+        <table>
+            <div class="lesson-image">
+                <img th:src="@{/admin/java-logo.jpg}" th:alt="講座画像">
+            </div>
+            <tr>
+                <th>講座名稱</th>
+                <th>說明</th>
+                <th>價格</th>
+                <th>編輯</th>
+            </tr>
+            <tr th:each="lesson : ${lessons}">
+                <td th:text="${lesson.name}"></td>
+                <td th:text="${lesson.description}"></td>
+                <td th:text="${lesson.price}"></td>
+                <td><a th:href="@{/editLesson/{id}(id=${lesson.id})}">編輯</a></td>
+            </tr>
+        </table>
+
+    </body> -->
+
+    </html>
+
+
+    <form action="">
+        <section class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/java-logo.jpg" alt="JAVA講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>JAVA講座</h1>
+                <p>JAVAを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <a href="admin_edit_lesson.html" class="more">編集</a>
+                    <span class="lesson-cost">￥19990</span>
+                </div>
+            </div>
+        </section>
+    </form>
+
+
+    <form action="">
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/java-logo.jpg" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>JAVA講座</h1>
+                <p>JAVAを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <button class="more"><a href="admin_edit_lesson.html">編集</a></button>
+                    <span class="lesson-cost">￥19990</span>
+
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+    <a>
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/aws.png" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>AWS講座</h1>
+                <p>AWSを紹介する講座です</p>
+                <div class="lesson-actions">
+
+                    <span class="lesson-fee">￥15900</span>
+
+                </div>
+
+            </div>
+            <!-- <button class="more">編集</button> -->
+            <form action="admin_edit_lesson.html">
+                <button type="submit">編集</button>
+            </form>
+        </div>
+
+
+    </a>
+
+
+
+
+
+</body>
+
+</html>

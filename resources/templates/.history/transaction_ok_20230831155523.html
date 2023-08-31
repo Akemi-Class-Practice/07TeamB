@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>支付完成</title>
+</head>
+
+<body>
+    <h1>支付完成！</h1>
+    <p>您的支付已成功完成。</p>
+
+    <p>页面将在 <span id="countdown">5</span> 秒后自动跳转回<a href="index.html">首页</a>。</p>
+
+    <script>
+        // 获取倒计时元素
+        var countdownElement = document.getElementById("countdown");
+
+        // 设置初始倒计时值
+        var countdown = 5;
+
+        // 定义倒计时函数
+        function startCountdown() {
+            if (countdown > 0) {
+                countdown--;
+                countdownElement.textContent = countdown;
+                setTimeout(startCountdown, 1000); // 每秒更新倒计时
+            } else {
+                // 倒计时结束，跳转回首页
+                window.location.href = "lesson_list_user.html";
+            }
+        }
+
+        // 开始倒计时
+        startCountdown();
+    </script>
+</body>
+
+</html>

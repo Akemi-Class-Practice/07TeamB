@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="test.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>講座詳細</title>
+</head>
+
+<body>
+    <header>
+        <nav class="head_nav">
+            <ul>
+                <li><a href="lesson_list.html">講座一覧</a></li>
+                <li><a href="cart_list.html">カート一覧</a></li>
+                <li><a href="bought_items.html">購入履歴</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>講座詳細</h1>
+    <div th:each="lesson : ${lessons}">
+        <div class="lesson-detail">
+            <a href="admin_delete_lesson.html" style="text-decoration: none;">
+                <form action=" admin_edit_lesson.html">
+                    <div class="lesson">
+                        <div class="lesson-image">
+                            <img src="/admin/java-logo.jpg" alt="講座画像">
+                        </div>
+                        <div class="lesson-details">
+                            <h1>JAVA講座</h1>
+                            <p>JAVAを紹介する講座です</p>
+                            <div class="lesson-actions">
+                                <button type="submit" class="more">編集</button>
+                                <span class="lesson-cost">￥19990</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </a>
+
+
+            <a href="admin_delete_lesson.html" style="text-decoration: none;">
+                <form action="admin_edit_lesson.html">
+                    <div class="lesson">
+                        <div class="lesson-image">
+                            <img src="/admin/aws.png" alt="講座画像">
+                        </div>
+                        <div class="lesson-details">
+                            <h1>AWS講座</h1>
+                            <p>AWSを紹介する講座です</p>
+                            <div class="lesson-actions">
+                                <button type="submit" class="more">編集</button>
+                                <span class="lesson-fee">￥15900</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </form>
+            </a>
+
+            <!-- カートに追加ボタン -->
+            <form th:action="@{/add-to-cart}" method="post">
+                <input type="hidden" name="lessonId" th:value="${lesson.lessonId}">
+                <button type="submit">カートに追加</button>
+            </form>
+
+            <!-- 戻るボタン -->
+            <form th:action="@{/return}" method="post">
+                <input type="hidden" name="lessonId" th:value="${lesson.lessonId}">
+                <button type="submit">戻る</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

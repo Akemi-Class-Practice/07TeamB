@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome Page</title>
+    <header>
+        <nav class="head_nav">
+            <img src="path_to_your_logo_image.png" alt="My Logo">
+            <ul>
+                <!-- 使用Thymeleaf变量替换"Username" -->
+                <li><a href="welcome.html" th:text="${username}">test</a></li>
+                <li><a href="lesson_list.html">講座一覧</a></li>
+                <li><a href="cart_list.html">カート一覧</a></li>
+                <li><a href="bought_items.html">購入履歴</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+        /* 头部导航栏样式 */
+        .head_nav {
+            background-color: dodgerblue;
+            color: white;
+            padding: 10px 0;
+
+        }
+
+        .head_nav img {
+            max-height: 40px;
+            /* 调整Logo的高度 */
+            text-align: left;
+            align-self: center;
+            /* 在垂直方向上居中 */
+            width: 250px;
+            /* 设置宽度为 250px */
+            height: 80px;
+            /* 设置高度为 80px */
+            margin-left: 50px;
+            /* 将图片与左边缘隔开 50px */
+        }
+
+        .head_nav ul {
+            list-style: none;
+            text-align: right;
+        }
+
+        .head_nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        .head_nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .head_nav ul li {
+            margin-right: 20px;
+        }
+
+        .head_nav ul li:first-child {
+            margin-right: 100px;
+            /* 与其他元素隔开的间距 */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Our Website!</h1>
+    <p>We are glad to have you here. Feel free to explore and learn.</p>
+</body>
+
+</html>

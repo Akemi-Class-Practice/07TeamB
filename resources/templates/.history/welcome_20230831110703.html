@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Welcome Page</title>
+    <header>
+        <nav class="head_nav">
+            <img src="path_to_your_logo_image.png" alt="My Logo">
+            <ul>
+                <!-- 使用Thymeleaf变量替换"Username" -->
+                <li><a href="welcome.html" th:text="${username}">test</a></li>
+                <li><a href="lesson_list.html">講座一覧</a></li>
+                <li><a href="cart_list.html">カート一覧</a></li>
+                <li><a href="bought_items.html">購入履歴</a></li>
+            </ul>
+        </nav>
+    </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 100px;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        p {
+            color: #333;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welcome to Our Website!</h1>
+    <p>We are glad to have you here. Feel free to explore and learn.</p>
+</body>
+
+</html>

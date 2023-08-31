@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者講座一覧</title>
+    <link rel="stylesheet" href="admin_test.css">
+</head>
+
+<body>
+    <header>
+        <nav class="head_nav">
+            <img src="path_to_your_logo_image.png" alt="My Logo">
+            <ul>
+                <!-- 使用Thymeleaf变量替换"Username" -->
+                <li><a href="welcome.html" th:text="${username}">test</a></li>
+                <li><a href="lesson_list.html">講座</a></li>
+                <!-- <li><a href="cart_list.html">カート</a></li> -->
+                <!-- <li><a href="bought_items.html">履歴</a></li> -->
+                <li><a href="admin_login.html ">ログアウト</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>講座列表</title>
+    </head>
+
+
+
+    </html>
+    <form action="cart_list.html">
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/java-logo.jpg" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>JAVA講座</h1>
+                <p>JAVAを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <button type="submit" class="more">カートに追加</button>
+                    <span class="lesson-cost">￥19990</span>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+
+
+    <form action="cart_list.html">
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/aws.png" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>AWS講座</h1>
+                <p>AWSを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <button type="submit" class="more">カートに追加</button>
+                    <span class="lesson-fee">￥15900</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者講座一覧</title>
+    <link rel="stylesheet" href="adminLesson.css">
+</head>
+
+<body>
+    <header>
+        <nav class="head_nav">
+            <img src="path_to_your_logo_image.png" alt="My Logo">
+            <ul>
+                <!-- 使用Thymeleaf变量替换"Username" -->
+                <li><a href="welcome.html" th:text="${username}">test</a></li>
+                <li><a href="lesson_list.html">講座</a></li>
+                <li><a href="cart_list.html">カート</a></li>
+                <li><a href="bought_items.html">履歴</a></li>
+                <li><a href="admin_login.html ">ログアウト</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+
+    <!DOCTYPE html>
+    <html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>講座列表</title>
+    </head>
+
+    <!-- <body>
+        <h1>講座列表</h1>
+        <table>
+            <div class="lesson-image">
+                <img th:src="@{/admin/java-logo.jpg}" th:alt="講座画像">
+            </div>
+            <tr>
+                <th>講座名稱</th>
+                <th>說明</th>
+                <th>價格</th>
+                <th>編輯</th>
+            </tr>
+            <tr th:each="lesson : ${lessons}">
+                <td th:text="${lesson.name}"></td>
+                <td th:text="${lesson.description}"></td>
+                <td th:text="${lesson.price}"></td>
+                <td><a th:href="@{/editLesson/{id}(id=${lesson.id})}">編輯</a></td>
+            </tr>
+        </table>
+
+    </body> -->
+
+    </html>
+    <form action="admin_edit_lesson.html">
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/java-logo.jpg" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>JAVA講座</h1>
+                <p>JAVAを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <button type="submit" class="more">編集</button>
+                    <span class="lesson-cost">￥19990</span>
+                </div>
+
+            </div>
+
+        </div>
+    </form>
+
+
+    <form action="admin_edit_lesson.html">
+        <div class="lesson">
+            <div class="lesson-image">
+                <img src="/admin/aws.png" alt="講座画像">
+            </div>
+            <div class="lesson-details">
+                <h1>AWS講座</h1>
+                <p>AWSを紹介する講座です</p>
+                <div class="lesson-actions">
+                    <button type="submit" class="more">編集</button>
+                    <span class="lesson-fee">￥15900</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </form>
+
+
+
+
+
+</body>
+
+</html>

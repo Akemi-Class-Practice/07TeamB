@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>テンプレート</title>
 	<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 	<header>
 		<div>
@@ -50,8 +53,8 @@
 					<tr>
 						<th>講座内容</th>
 						<td>
-							<textarea cols="30" rows="5" name="lessonDetail" 
-							th:text="${lessonList.lessonDetail}"></textarea>
+							<textarea cols="30" rows="5" name="lessonDetail"
+								th:text="${lessonList.lessonDetail}"></textarea>
 						</td>
 					</tr>
 					<tr>
@@ -65,11 +68,16 @@
 				<input type="hidden" name="imageName" th:value="${lessonList.imageName}">
 				<div class="change-button">
 					<button id="return_btn" type="button" onclick="history.back();">戻る</button>
-					<button id="change_btn">変更</button>
+					<button type="submit" id="change_btn">変更</button>
+
+
 				</div>
 			</form>
+
 		</div>
+
 	</article>
-	<footer><small>Copyright &copy; Business Design Academy All rights reserved.</small></footer>
+	<footer><small>Copyright &copy; All rights reserved.</small></footer>
 </body>
+
 </html>

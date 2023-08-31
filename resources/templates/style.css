@@ -1,0 +1,69 @@
+/* Reset some default browser styling */
+body,
+h1,
+h2,
+p,
+table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a base font size and color */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+/* Article styles */
+article {
+    padding: 20px;
+}
+
+article h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.change {
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+.change-button {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.change-button button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.change-button button#return_btn {
+    background-color: #ccc;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}

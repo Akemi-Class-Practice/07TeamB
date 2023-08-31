@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>テンプレート</title>
 	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 	<header>
 		<div>
@@ -15,10 +17,13 @@
 	</header>
 	<article>
 		<h2>講座一覧</h2>
-		<form th:action="" method="post">
+		<!-- <form action="admin_delete_check.html" method="post"> -->
+		<form action="admin_delete_check.html">
 			<div class="delete_btn">
+
 				<button>削除します</button>
 				<div class="number">講座番号<input type="text" name="lessonId"></div>
+
 			</div>
 		</form>
 		<table class="delete_table">
@@ -41,4 +46,5 @@
 	</article>
 	<footer><small>Copyright &copy; All rights reserved.</small></footer>
 </body>
+
 </html>

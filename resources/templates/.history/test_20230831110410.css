@@ -1,0 +1,101 @@
+/* 重置一些默认样式 */
+body,
+h1,
+h2,
+p,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* 头部导航栏样式 */
+.head_nav {
+    background-color: dodgerblue;
+    color: white;
+    padding: 10px 0;
+    align-items: center;
+    /* 垂直居中 */
+}
+
+.head_nav img {
+    max-height: 40px;
+    /* 调整Logo的高度 */
+    text-align: left;
+    align-self: center;
+    /* 在垂直方向上居中 */
+    width: 250px;
+    /* 设置宽度为 250px */
+    height: 80px;
+    /* 设置高度为 80px */
+    margin-left: 50px;
+    /* 将图片与左边缘隔开 50px */
+}
+
+.head_nav ul {
+    list-style: none;
+    text-align: right;
+}
+
+.head_nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.head_nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.head_nav ul li {
+    margin-right: 20px;
+}
+
+.head_nav ul li:first-child {
+    margin-right: 100px;
+    /* 与其他元素隔开的间距 */
+}
+
+/* 主要内容区域样式 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.lesson-detail {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.lesson-detail img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.lesson-detail h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.lesson-detail p {
+    margin-bottom: 5px;
+}
+
+.lesson-detail button {
+    background-color: white;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+
+.lesson-detail button:hover {
+    background-color: #555;
+}

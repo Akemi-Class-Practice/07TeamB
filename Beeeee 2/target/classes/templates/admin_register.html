@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>管理者登録</title>
+    <link rel="stylesheet" href="admin_style.css">
+</head>
+<body>
+    <form action="#">
+        <h1>Create Account</h1>
+        <div class="admin_register">
+            <input type="text" name="admin_name" placeholder="UserName" required>
+            <input type="email" name="admin_email" placeholder="Email" required>
+            <input type="password" name="admin_password" placeholder="Password" required>
+            <input type="password" name="admin_password" placeholder="ConfirmPassword" required>
+            <input class="check_box" type="checkbox" checked><a href="#">利用者規則確認</a>
+            <input type="submit" class="btn" value="CREATE">
+            <input type="button" class="btn" onclick="history.back();" value="戻る">
+        </div>
+    </form>
+</body>
+</html>

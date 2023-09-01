@@ -1,0 +1,42 @@
+.admin_login .admin_register{
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+}
+h1{
+    text-align: center;
+    color:rgb(49, 113, 210);
+    position: relative;
+}
+form{
+    position: relative;
+    border-radius: 20px;
+    max-width: 280px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+}
+input{
+    font-family: sans-serif;
+    width: 100%;
+    border-style: solid;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 12px;
+    border-radius: 20px;
+}
+.btn{
+    font-family: sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: rgb(49, 113, 210);
+    width: 100%;
+    height: 50px;
+    border: 0;
+    padding: 15px;
+    color: white;
+    font-size: 15px;
+    transition: all 0.3 ease;
+    cursor: pointer;
+}

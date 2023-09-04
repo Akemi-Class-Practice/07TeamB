@@ -40,7 +40,3 @@ input{
     transition: all 0.3 ease;
     cursor: pointer;
 }
-#error_message
-{
-    text-align: center;
-}

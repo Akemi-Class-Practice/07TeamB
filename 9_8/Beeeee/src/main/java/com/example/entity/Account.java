@@ -3,10 +3,18 @@ package com.example.entity;
 import javax.persistence.*;
 
 public class Account {
-
+// mysql
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+//	// postgresql
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "admin_info_id_seq")
+//	@SequenceGenerator(name = "admin_info_id_seq", sequenceName = "admin_info_id_seq", allocationSize = 1)
+//	@Column(name = "id")
+//	private Long id;
+
 
     @Column(name = "name")
     private String name;

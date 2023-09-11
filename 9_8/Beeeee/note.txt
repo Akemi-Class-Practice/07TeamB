@@ -2,7 +2,7 @@
 # 在Beeeee的数据库中：
 
 
--- 削除表，如果存在
+-- 删除表，如果存在
 DROP TABLE IF EXISTS admin_info;
 
 -- 创建表
@@ -23,7 +23,7 @@ VALUES
   ('teamb', '4', '4', 1);
 
 
--- 削除表，如果存在
+-- 删除表，如果存在
 DROP TABLE IF EXISTS yuuza_info;
 
 -- 创建表
@@ -69,3 +69,20 @@ CREATE TABLE xuanke_info (
 
 #
 没有直接使用Thymeleaf标签，用了一些Vue.js和Axios
+
+#
+`tk.mybatis`，也称为`MyBatis通用Mapper`，是一个用于简化MyBatis操作的开源库。MyBatis通用Mapper提供了一种更加便捷的方式来进行数据库操作，特别是针对单表的基本的CRUD操作（创建、读取、更新、删除）。
+
+通用Mapper的主要特点包括：
+
+1. **简化SQL编写**：通用Mapper会根据实体类和注解自动生成SQL语句，无需手动编写大部分的SQL。
+
+2. **提供通用方法**：通用Mapper提供了一套通用的方法，如`selectByPrimaryKey`、`insert`、`updateByPrimaryKey`、`deleteByPrimaryKey`等，可以直接在DAO层使用这些方法执行数据库操作。
+
+3. **支持动态SQL**：虽然提供了通用方法，但通用Mapper也支持动态SQL，允许你在需要时手动编写自定义的SQL语句。
+
+4. **支持多种数据库**：通用Mapper兼容多种数据库，包括MySQL、PostgreSQL、Oracle等，可以适用于不同的数据库环境。
+
+5. **与MyBatis集成**：通用Mapper与MyBatis无缝集成，你可以将其与MyBatis的注解和XML映射文件一起使用。
+
+通用Mapper的使用能够极大地简化数据库操作的代码编写，提高开发效率。它通常与其他库如`PageHelper`一起使用，以实现分页查询等高级功能。

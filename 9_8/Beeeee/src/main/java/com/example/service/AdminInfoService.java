@@ -58,7 +58,7 @@ public class AdminInfoService {
      // 默认管理员设置 level 为 1
         // 也可以设置数据库管理员表level默认值为1
         adminInfo.setLevel(1);
-        
+     // 4. 插入管理员信息，让数据库生成 id
         adminInfoDao.insertSelective(adminInfo);
     }
 

@@ -9,7 +9,7 @@ spring:
     url: jdbc:postgresql://localhost:5433/Beeeee
       
   thymeleaf:
-    cache: false # 关闭缓存
+    cache: false # 閉じる缓存
   servlet:
     multipart:
       max-file-size: 100MB
@@ -39,7 +39,7 @@ pagehelper:
 #    password: 123456
 #    url: jdbc:mysql://localhost:3306/teamb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
 #  thymeleaf:
-#    cache: false #关闭缓存
+#    cache: false #閉じる缓存
 #  servlet:
 #    multipart:
 #      max-file-size: 100MB
@@ -63,3 +63,9 @@ logging:
 open:
   browser:
     url: 'http://localhost:8888/end/page/login.html'
+  
+  
+##mac  
+#open:
+#  browser:
+#    command: 'open -a "Google Chrome" http://localhost:8888/end/page/login.html'

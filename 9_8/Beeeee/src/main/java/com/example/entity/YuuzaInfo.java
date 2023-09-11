@@ -8,8 +8,8 @@ import javax.persistence.Transient;
 public class YuuzaInfo extends Account {
 
 
-    @Column(name = "price")
-    private Integer price;
+//    @Column(name = "price")
+//    private Integer price;
 
     
     // TODO 继承了account但这里不写就注册后没法写email到数据库里
@@ -27,13 +27,13 @@ public class YuuzaInfo extends Account {
 
 
 
-    public Integer getScore() {
-        return price;
-    }
-
-    public void setScore(Integer price) {
-        this.price = price;
-    }
+//    public Integer getScore() {
+//        return price;
+//    }
+//
+//    public void setScore(Integer price) {
+//        this.price = price;
+//    }
 
 
 }

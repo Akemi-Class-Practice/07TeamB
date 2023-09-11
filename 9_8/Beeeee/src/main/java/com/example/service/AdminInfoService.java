@@ -22,11 +22,11 @@ public class AdminInfoService {
 
     public Account login(String name, String password) {
 
-        // 通过用户名和密码去数据库里查一条记录出来
+        // 通过ユーザー名和密码去数据库里查一条记录出来
         AdminInfo adminInfo = adminInfoDao.findByNameAndPass(name, password);
 
         if (ObjectUtil.isEmpty(adminInfo)) {
-            throw new CustomException("-1", "用户名、密码或角色错误");
+            throw new CustomException("-1", "ユーザー名、密码或角色错误");
         }
 
         return adminInfo;
@@ -42,12 +42,12 @@ public class AdminInfoService {
 
     public void add(AdminInfo adminInfo) {
         // 能否直接就插入数据库呢？
-        // 1. 新增管理员，没有写密码字段，需要初始化一个密码
+        // 1. 追加管理员，没有写密码字段，需要初始化一个密码
 
         // 1. 先查询数据库里面有没有同名的管理员
         AdminInfo info = adminInfoDao.findByName(adminInfo.getName());
         if (ObjectUtil.isNotEmpty(info)) {
-            // 如果查到了，提示前台用户名已存在
+            // 如果查到了，提示前台ユーザー名已存在
             throw new CustomException(ResultCode.USER_EXIST_ERROR);
         }
         if (ObjectUtil.isEmpty(adminInfo.getPassword())) {

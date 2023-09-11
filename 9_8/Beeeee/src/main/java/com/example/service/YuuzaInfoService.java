@@ -24,10 +24,10 @@ public class YuuzaInfoService {
 
     public Account login(String name, String password) {
 
-        // 去数据库里根据用户名和密码查询ユーザー情報
+        // 去数据库里根据ユーザー名和密码查询ユーザー情報
         YuuzaInfo yuuzaInfo = yuuzaInfoDao.findByNameAndPassword(name, password);
         if (ObjectUtil.isEmpty(yuuzaInfo)) {
-            throw new CustomException("-1", "用户名、密码或者角色选择错误");
+            throw new CustomException("-1", "ユーザー名、密码或者角色选择错误");
         }
 
         return yuuzaInfo;
@@ -55,7 +55,7 @@ public class YuuzaInfoService {
     }
 
     public void add(YuuzaInfo yuuzaInfo) {
-        // 1. 从数据库中根据用户名查询查一条信息，如果有说明用户名重复，提示重新输入
+        // 1. 从数据库中根据ユーザー名查询查一条信息，如果有说明ユーザー名重复，提示重新输入
         YuuzaInfo info = yuuzaInfoDao.findByName(yuuzaInfo.getName());
         if (ObjectUtil.isNotEmpty(info)) {
             throw new CustomException(ResultCode.USER_EXIST_ERROR);

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>注册页面</title>
+    <title>登録</title>
 
     <link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/font-awesome.css" rel="stylesheet"/>
@@ -22,7 +22,7 @@
 <div id="app" class="container" v-cloak>
     <div class="row text-center " style="padding-top:180px;">
         <div class="col-md-12">
-           <h2>欢迎注册</h2>
+           <h2>ようこそ、登録へ</h2>
         </div>
     </div>
     <div class="row ">
@@ -35,32 +35,32 @@
                     <br/>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-tag"></i></span>
-                        <input type="text" class="form-control" v-model="user.name" placeholder="用户名"/>
+                        <input type="text" class="form-control" v-model="user.name" placeholder="ユーザー名"/>
                     </div>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                        <input type="text" class="form-control" v-model="user.email" placeholder="email"/>
+                        <input type="text" class="form-control" v-model="user.email" placeholder="メールアドレス"/>
                     </div>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" v-model="user.password" placeholder=" 密码"/>
+                        <input type="password" class="form-control" v-model="user.password" placeholder="パスワード"/>
                     </div>
-                    <h5>请选择角色</h5>
+                    <h5>役割を選択してください</h5>
                     <div class="form-group input-group">
                         <span class="input-group-addon"><i class="fa fa-user"></i></span>
                         <select class="form-control" v-model="user.level">
-                            <option value="" selected="">请选择</option>
-                            <!--<option value="1">admin</option>-->
-                            <option value="3">用户</option>
+                            <option value="" selected="">選択してください</option>
+                            <!--<option value="1">管理者</option>-->
+                            <option value="3">ユーザー</option>
                         </select>
                     </div>
 
                     <div style="text-align: center">
-                        <a href="javascript:void(0)" class="btn btn-block btn-primary" @click="register()">注册</a>
+                        <a href="javascript:void(0)" class="btn btn-block btn-primary" @click="register()">登録</a>
                     </div>
                     <hr/>
                     <div style="text-align: center">
-                        <span>已注册 ?</span> <a href="login.html">点击这里 </a>
+                        <span>すでに登録済みですか？</span> <a href="login.html">こちらをクリック </a>
                     </div>
                 </form>
             </div>

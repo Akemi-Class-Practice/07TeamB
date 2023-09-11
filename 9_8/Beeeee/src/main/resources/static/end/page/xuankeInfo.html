@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
       xmlns:v-bind="http://www.w3.org/1999/xhtml">
@@ -93,7 +92,7 @@
                             <a href="updatePassword.html"><i class="fa fa-unlock-alt"></i>パスワードの変更</a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)" @click="logout"><i class="fa fa-power-off"></i>ログアウト登录</a>
+                            <a href="javascript:void(0)" @click="logout"><i class="fa fa-power-off"></i>ログアウト</a>
                         </li>
                     </ul>
                 </div>
@@ -115,22 +114,23 @@
                             <div class="panel-body">
                                 <div class="table-responsive">
                                     <div class="nx-table-header">
-<!--                                        <button class="btn btn-sm btn-primary">新增</button>-->
-                                        <input type="text" placeholder="请输入搜索内容">
+<!--                                        <button class="btn btn-sm btn-primary">追加</button>-->
+                                        <input type="text" placeholder="検索内容を入力してください">
                                         <i class="glyphicon glyphicon-search"></i>
                                     </div>
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>课程名称</th>
-                                            <th>课程介绍</th>
-                                            <th>课程价格</th>
-                                            <th>授课教师</th>
+											  <th>講座名</th>
+                                            <th>講座説明</th>
+                                            <th>講座価格</th>
+                                            <th>講師</th>
                                             
-                                            <th>上课时段</th>
-                                           
-                                            <th>选课用户</th>
-                                            <th>课程状态</th>
+                                            <th>授業時間</th>
+                                            
+                                            <th>受講者数</th>
+                                            
+                                            <th>授業状態</th>
                                             <th v-if="user.level !== 1">操作</th>
                                         </tr>
                                         </thead>
@@ -146,8 +146,8 @@
                                             <td>{{obj.yuuzaName}}</td>
                                             <td>{{obj.status}}</td>
                                             <td v-if="user.level !== 1">
-                                                <button v-if="user.level === 3" :disabled="obj.status === '已开课'" class="btn btn-sm btn-primary" @click="del(obj.id)">取消选课</button>
-                                                <button v-if="user.level === 2" :disabled="obj.status === '已开课'" class="btn btn-sm btn-primary" @click="kaike(obj)">开课</button>
+                                                <button v-if="user.level === 3" :disabled="obj.status === '已开课'" class="btn btn-sm btn-primary" @click="del(obj.id)">選択のキャンセル</button>
+                                                <button v-if="user.level === 2" :disabled="obj.status === '已开课'" class="btn btn-sm btn-primary" @click="kaike(obj)">授業開始</button>
                                             </td>
                                         </tr>
                                         </tbody>
@@ -161,12 +161,12 @@
         </div>
     </div>
 
-    <!-- 模态框（Modal） -->
+    <!-- モーダル -->
     <div class="modal" tabindex="-1" role="dialog" id="mod">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <span class="modal-title">请填写信息</span>
+                    <span class="modal-title">情報を入力してください</span>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close" @click="entity={}">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -178,7 +178,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={sex:'男'}">关闭</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="entity={sex:'男'}">閉じる</button>
                     <button type="button" class="btn btn-primary" v-on:click="update()">保存</button>
                 </div>
             </div>
@@ -198,7 +198,7 @@
 <script>
     function msg(type, msg) {
         Vue.prototype.$message({
-            type: type, // success（成功）、warning（警告）, error(错误)
+            type: type, // success（成功）、warning（警告）, error(エラー)
             message: msg,
             duration: 2000,
             offset: 100,
@@ -239,7 +239,7 @@
             del(id) {
                 axios.delete("/xuankeInfo/" + id).then(res => {
                     if (res.data.code === '0') {
-                        msg("success", "取消成功");
+                        msg("success", "選択をキャンセルしました");
                         this.loadTable();
                     } else {
                         msg("error", res.data.mgs);
@@ -248,10 +248,10 @@
             },
 
             kaike(obj) {
-                obj.status = "已开课";
+                obj.status = "授業開始";
                 axios.put("/xuankeInfo", obj).then(res => {
                     if (res.data.code === '0') {
-                        msg("success", "开课成功");
+                        msg("success", "授業が開始されました");
                         this.loadTable();
                     } else {
                         msg("error", res.data.mgs);

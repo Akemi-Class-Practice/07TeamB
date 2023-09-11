@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * 描述：跟账号相关的接口
+ * 説明：アカウント関連のAPI
  */
 @RestController
 @RequestMapping
@@ -37,45 +37,45 @@ public class AccountController {
 
     @RequestMapping("/captcha")
     public void captcha(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        // png类型
-        SpecCaptcha captcha = new SpecCaptcha(135, 33, 1); // 验证码的位数
+        // PNG形式
+        SpecCaptcha captcha = new SpecCaptcha(135, 33, 1); // キャプチャの桁数
         captcha.setCharType(Captcha.TYPE_NUM_AND_UPPER);
         CaptchaUtil.out(captcha, request, response);
 
     }
 
     /**
-     * 描述：登录功能
-     * @param user 登录ユーザー情報
-     * @param request request请求
+     * 説明：ログイン機能
+     * @param user ログインユーザー情報
+     * @param request リクエスト
      * @return Result
      */
     @PostMapping("/login")
     public Result login(@RequestBody Account user, HttpServletRequest request) {
 
-        // 校验数据有没有填
+        // データが入力されているかどうかを確認
         if (ObjectUtil.isEmpty(user.getName()) || ObjectUtil.isEmpty(user.getPassword()) || ObjectUtil.isEmpty(user.getLevel())) {
-            return Result.error("-1", "请完善输入信息");
+            return Result.error("-1", "入力情報を完了してください");
         }
 
 //        if (!CaptchaUtil.ver(user.getVerCode(), request)) {
-//            // 清除session中的验证码
+//            // セッションの中のキャプチャをクリア
 //            CaptchaUtil.clear(request);
-//            return Result.error("1001", "验证码不正确");
+//            return Result.error("1001", "キャプチャが正しくありません");
 //        }
 
         Integer level = user.getLevel();
         Account loginUser = new Account();
         if (1 == level) {
-            // 管理员登录
+            // 管理者ログイン
             loginUser = adminInfoService.login(user.getName(), user.getPassword());
         }
         if (3 == level) {
-            // 用户登录
+            // ユーザーログイン
             loginUser = yuuzaInfoService.login(user.getName(), user.getPassword());
         }
 
-        // 在session里面把ユーザー情報存一份
+        // セッションにユーザー情報を保存
         request.getSession().setAttribute("user", loginUser);
 
         return Result.success(loginUser);
@@ -83,14 +83,14 @@ public class AccountController {
 
     @PostMapping("/register")
     public Result register(@RequestBody Account user, HttpServletRequest request) {
-        // 校验数据有没有填
+        // データが入力されているかどうかを確認
         if (ObjectUtil.isEmpty(user.getName()) || ObjectUtil.isEmpty(user.getPassword()) || ObjectUtil.isEmpty(user.getLevel())) {
-            return Result.error("-1", "请完善输入信息");
+            return Result.error("-1", "入力情報を完了してください");
         }
 
         Integer level = user.getLevel();
         if (3 == level) {
-            // 用户注册
+            // ユーザー登録
             YuuzaInfo yuuzaInfo = new YuuzaInfo();
             BeanUtils.copyProperties(user, yuuzaInfo);
             yuuzaInfoService.add(yuuzaInfo);
@@ -100,23 +100,23 @@ public class AccountController {
     }
 
     /**
-     * 获取当前登录的用户
+     * 現在のログインユーザーを取得
      * @param request
      * @return
      */
     @GetMapping("/getUser")
     public Result getUser(HttpServletRequest request) {
-        // 先从session里面获取当前存的登录ユーザー情報
+        // セッションから現在のログインユーザー情報を取得
         Account user = (Account) request.getSession().getAttribute("user");
-        // 判断当前登录的用户是什么角色
+        // 現在のログインユーザーの役割を判断
         Integer level = user.getLevel();
         if (1 == level) {
-            // 获取管理员
+            // 管理者を取得
             AdminInfo adminInfo = adminInfoService.findById(user.getId());
             return Result.success(adminInfo);
         }
         if (3 == level) {
-            // 从用户表里面获取ユーザー情報
+            // ユーザーテーブルからユーザー情報を取得
             YuuzaInfo yuuzaInfo = yuuzaInfoService.findById(user.getId());
             return Result.success(yuuzaInfo);
         }
@@ -125,15 +125,15 @@ public class AccountController {
 
     @PostMapping("/updatePassword")
     public Result updatePassword(@RequestBody Account account, HttpServletRequest request) {
-        // 1. 知道当前登录用户是哪个角色
+        // 1. 現在のログインユーザーがどの役割かを知る
         Account user = (Account) request.getSession().getAttribute("user");
-        // 2. 判断原密码对不对
+        // 2. 元のパスワードが正しいかどうかを確認
         String oldPassword = account.getPassword();
         if (!user.getPassword().equals(oldPassword)) {
-            return Result.error("-1", "原密码输入错误");
+            return Result.error("-1", "元のパスワードが間違っています");
         }
         String newPassword = account.getNewPassword();
-        // 判断当前登录的用户是什么角色，根据角色，去对应的数据库表里更新密码
+        // 現在のログインユーザーの役割に応じて、対応するデータベーステーブルでパスワードを更新
         Integer level = user.getLevel();
         if (1 == level) {
             AdminInfo adminInfo = new AdminInfo();
@@ -148,7 +148,7 @@ public class AccountController {
             yuuzaInfo.setPassword(newPassword);
             yuuzaInfoService.update(yuuzaInfo);
         }
-        // 3. 把session中的登录ユーザー情報给清掉
+        // 3. セッション中のログインユーザー情報をクリア
         request.getSession().setAttribute("user", null);
         return Result.success();
     }

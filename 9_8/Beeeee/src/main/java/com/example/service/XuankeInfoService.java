@@ -55,13 +55,28 @@ public class XuankeInfoService {
         return xuankeInfoDao.find(name, teacher, yuuzaId);
     }
 
+//    public void delete(Long id) {
+//        XuankeInfo xuankeInfo = xuankeInfoDao.selectByPrimaryKey(id);
+//        ClassInfo classInfo = classInfoDao.findByNameAndTeacher(xuankeInfo.getName());
+//        xuankeInfoDao.deleteByPrimaryKey(id);
+//        classInfo.setYixuan(classInfo.getYixuan() - 1);
+//        classInfoDao.updateByPrimaryKeySelective(classInfo);
+//    }
     public void delete(Long id) {
         XuankeInfo xuankeInfo = xuankeInfoDao.selectByPrimaryKey(id);
-        ClassInfo classInfo = classInfoDao.findByNameAndTeacher(xuankeInfo.getName());
+        String className = xuankeInfo.getName(); // 获取课程名
+
+        // 1. 删除选课信息
         xuankeInfoDao.deleteByPrimaryKey(id);
-        classInfo.setYixuan(classInfo.getYixuan() - 1);
-        classInfoDao.updateByPrimaryKeySelective(classInfo);
+
+        // 2. 更新课程信息的已选人数
+        ClassInfo classInfo = classInfoDao.findByName(className);
+        if (classInfo != null) {
+            classInfo.setYixuan(classInfo.getYixuan() - 1);
+            classInfoDao.updateByPrimaryKeySelective(classInfo);
+        }
     }
+
 
     public void update(XuankeInfo xuankeInfo) {
         xuankeInfoDao.updateByPrimaryKeySelective(xuankeInfo);

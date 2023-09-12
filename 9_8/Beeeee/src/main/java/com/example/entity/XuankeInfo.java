@@ -20,16 +20,14 @@ public class XuankeInfo {
     private String time;
 
 
-    @Column(name = "teacherId")
-    private Long teacherId;
+   
     @Column(name = "yuuzaId")
     private Long yuuzaId;
     @Column(name = "status")
     private String status;
-    @Transient
-    private String teacherName;
-    @Transient
-    private String zhuanyeName;
+    @Column(name = "teacher")
+    private String teacher;
+    
     @Transient
     private String yuuzaName;
 
@@ -75,22 +73,14 @@ public class XuankeInfo {
         this.time = time;
     }
 
-   
-    public Long getTeacherId() {
-        return teacherId;
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
-    public String getTeacherName() {
-        return teacherName;
-    }
-
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
-    }
 
     public Long getYuuzaId() {
         return yuuzaId;
@@ -108,13 +98,7 @@ public class XuankeInfo {
         this.status = status;
     }
 
-    public String getZhuanyeName() {
-        return zhuanyeName;
-    }
-
-    public void setZhuanyeName(String zhuanyeName) {
-        this.zhuanyeName = zhuanyeName;
-    }
+   
 
     public String getYuuzaName() {
         return yuuzaName;

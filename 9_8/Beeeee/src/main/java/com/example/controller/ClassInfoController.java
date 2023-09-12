@@ -39,24 +39,24 @@ public class ClassInfoController {
             throw new CustomException("-1", "登录已失效，请重新登录");
         }
 
-        // 1. 判断一下该用户有没有选过这门课
+        // 1. 判断一下该用户有没有买过这门课
         XuankeInfo info = xuankeInfoService.find(classInfo.getName(), classInfo.getTeacher(), user.getId());
         if (ObjectUtil.isNotEmpty(info)) {
-            throw new CustomException("-1", "您已经选过该门课，请不要重复选择");
+            throw new CustomException("-1", "您已经买过该门课，请不要重复买择");
         }
 
-        // 2. 把講座情報塞一份到授業情報表里
+        // 2. 把講座一覧塞一份到授業情報表里
         XuankeInfo xuankeInfo = new XuankeInfo();
         BeanUtils.copyProperties(classInfo, xuankeInfo);
         xuankeInfo.setId(null);
 
         // 3. 把授業情報表里剩下的字段信息补全
         xuankeInfo.setYuuzaId(user.getId());
-        xuankeInfo.setStatus("待开课");
+        xuankeInfo.setStatus("支払い待ち");
 
         xuankeInfoService.add(xuankeInfo);
 
-        // 3. 講座情報里的已选人数要加 1
+        // 3. 講座一覧里的已买人数要加 1
         classInfo.setYixuan(classInfo.getYixuan() + 1);
         classInfoService.update(classInfo);
 

@@ -27,7 +27,7 @@ public class YuuzaInfoService {
         // 去数据库里根据ユーザー名和密码查询ユーザー情報
         YuuzaInfo yuuzaInfo = yuuzaInfoDao.findByNameAndPassword(name, password);
         if (ObjectUtil.isEmpty(yuuzaInfo)) {
-            throw new CustomException("-1", "ユーザー名、密码或者角色选择错误");
+            throw new CustomException("-1", "ユーザー名、密码或者角色买择错误");
         }
 
         return yuuzaInfo;
@@ -42,7 +42,7 @@ public class YuuzaInfoService {
     }
 
     public List<YuuzaInfo> finAll() {
-        // 处理一下这个list，把里面每一个ユーザー情報对应的学院名称搞进去
+  
         // 方式一：使用Java代码逻辑来实现关联查询
         List<YuuzaInfo> list = yuuzaInfoDao.selectAll();
         for (YuuzaInfo yuuzaInfo : list) {

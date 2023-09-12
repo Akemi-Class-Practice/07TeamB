@@ -41,16 +41,37 @@ CREATE TABLE `class_info` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `price` int DEFAULT NULL,
   `time` timestamp NULL DEFAULT NULL,
-  `yixuan` int DEFAULT NULL,
   `teacher` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `yixuan` int DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `class_info` */
 
-insert  into `class_info`(`id`,`name`,`description`,`price`,`time`,`yixuan`,`teacher`) values (6,'111','111',1,'2023-09-12 00:00:00',NULL,'111'),(7,'333333','3333333',2,'2023-04-08 00:00:00',NULL,'333333'),(8,'1','1',3,'2023-04-05 00:00:00',NULL,'1');
+insert  into `class_info`(`id`,`name`,`description`,`time`,`teacher`,`price`,`yixuan`) values (6,'111','111','2023-09-12 00:00:00','111',1,NULL),(7,'333333','3333333','2023-04-08 00:00:00','333333',2,NULL),(8,'1','1','2023-04-05 00:00:00','1',3,NULL);
+
+/*Table structure for table `xuanke_info` */
+
+DROP TABLE IF EXISTS `xuanke_info`;
+
+CREATE TABLE `xuanke_info` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `time` timestamp NULL DEFAULT NULL,
+  `teacher` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `price` int DEFAULT NULL,
+  `yuuzaId` bigint DEFAULT NULL,
+  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `yixuan` int DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Data for the table `xuanke_info` */
+
+insert  into `xuanke_info`(`id`,`name`,`description`,`time`,`teacher`,`price`,`yuuzaId`,`status`,`yixuan`) values (20,'111','111','2023-09-12 00:00:00','111',1,31,'払い済み',NULL);
 
 /*Table structure for table `yuuza_info` */
 
@@ -64,11 +85,11 @@ CREATE TABLE `yuuza_info` (
   `price` int DEFAULT NULL,
   `level` int DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `yuuza_info` */
 
-insert  into `yuuza_info`(`id`,`name`,`email`,`password`,`price`,`level`) values (22,'1','1','1',NULL,3),(23,'2','2','123456',NULL,3),(24,'d','d','d',NULL,3),(25,'3','1','123456',NULL,3),(29,'6','6','123456',NULL,3);
+insert  into `yuuza_info`(`id`,`name`,`email`,`password`,`price`,`level`) values (22,'1','1','1',NULL,3),(23,'2','2','123456',NULL,3),(24,'d','d','d',NULL,3),(25,'3','1','123456',NULL,3),(29,'6','6','123456',NULL,3),(30,'ee','ee','ee',NULL,3),(31,'rr','rr','rr',NULL,3);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

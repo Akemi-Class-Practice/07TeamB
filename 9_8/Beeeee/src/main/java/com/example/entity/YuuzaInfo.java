@@ -27,11 +27,11 @@ public class YuuzaInfo extends Account {
 
 
 
-//    public Integer getScore() {
+//    public Integer getPrice() {
 //        return price;
 //    }
 //
-//    public void setScore(Integer price) {
+//    public void setPrice(Integer price) {
 //        this.price = price;
 //    }
 

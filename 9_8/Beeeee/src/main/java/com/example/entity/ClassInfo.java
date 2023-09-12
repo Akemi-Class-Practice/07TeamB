@@ -22,10 +22,8 @@ public class ClassInfo {
     @Column(name = "yixuan")
     private Integer yixuan;
 
-    @Column(name = "teacherId")
-    private Long teacherId;
-    @Transient
-    private String teacherName;
+    @Column(name = "teacher")
+    private String teacher;
 
     public Long getId() {
         return id;
@@ -51,11 +49,11 @@ public class ClassInfo {
         this.description = description;
     }
 
-    public Integer getScore() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setScore(Integer price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -78,21 +76,14 @@ public class ClassInfo {
         this.yixuan = yixuan;
     }
 
-
-
-    public Long getTeacherId() {
-        return teacherId;
+    public String getTeacher() {
+        return teacher;
     }
 
-    public void setTeacherId(Long teacherId) {
-        this.teacherId = teacherId;
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
     }
 
-    public String getTeacherName() {
-        return teacherName;
-    }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
-    }
+    
 }

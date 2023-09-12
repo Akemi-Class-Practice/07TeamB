@@ -129,7 +129,7 @@
                                             <th>授業時間</th>
                                             
                                             <th>受講者数</th>
-                                            <th v-if="user.level !== 2">操作</th>
+                                            
                                         </tr>
                                         </thead>
                                         <tbody v-for="obj in tableData">
@@ -143,6 +143,11 @@
                                             <td>{{obj.time}}</td>
                                            
                                             <td>{{obj.yixuan}}</td>
+                                            <td>
+                                                <button v-if="user.level === 3" :disabled="obj.kaiban === obj.yixuan" class="btn btn-sm btn-primary" @click="xuanke(obj)">选课</button>
+                                                <button v-if="user.level === 1" class="btn btn-sm btn-primary" @click="init(obj)">编辑</button>
+                                                <button v-if="user.level === 1" class="btn btn-sm btn-danger" @click="del(obj.id)">删除</button>
+                                            </td>
                                            
                                         </tr>
                                         </tbody>
@@ -156,8 +161,9 @@
         </div>
     </div>
 
-    <!-- モーダルウィンドウ -->
-    <div class="modal" tabindex="-1" role="dialog" id="mod">
+    
+    
+   <div class="modal" tabindex="-1" role="dialog" id="mod">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -188,7 +194,7 @@
                             </div>
                         </div>
                         
-                        </div>
+                        
                         <div class="form-group">
                             <label class="col-sm-3 control-label">授業時間</label>
                             <div class="col-sm-7 form-inline">
@@ -197,13 +203,11 @@
                         </div>
                         
                        
-                        </div>
+                        
                         <div class="form-group">
                             <label class="col-sm-3 control-label">講師</label>
                             <div class="col-sm-7 form-inline">
-                                <select class="form-control" v-model="entity.teacherId" style="width: 100%">
-                                    <option v-for="item in teachernObjs" :value="item.id" >{{item.name}}</option>
-                                </select>
+                                <input type="text" class="form-control" v-model="entity.teacher" placeholder="講師を入力してください" style="width: 100%">
                             </div>
                         </div>
                     </form>

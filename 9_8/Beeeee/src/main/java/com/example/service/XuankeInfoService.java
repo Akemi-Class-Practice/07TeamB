@@ -51,13 +51,13 @@ public class XuankeInfoService {
         xuankeInfoDao.insertSelective(xuankeInfo);
     }
 
-    public XuankeInfo find(String name, Long teacherId, Long yuuzaId) {
-        return xuankeInfoDao.find(name, teacherId, yuuzaId);
+    public XuankeInfo find(String name, String teacher, Long yuuzaId) {
+        return xuankeInfoDao.find(name, teacher, yuuzaId);
     }
 
     public void delete(Long id) {
         XuankeInfo xuankeInfo = xuankeInfoDao.selectByPrimaryKey(id);
-        ClassInfo classInfo = classInfoDao.findByNameAndTeacher(xuankeInfo.getName(), xuankeInfo.getTeacherId());
+        ClassInfo classInfo = classInfoDao.findByNameAndTeacher(xuankeInfo.getName());
         xuankeInfoDao.deleteByPrimaryKey(id);
         classInfo.setYixuan(classInfo.getYixuan() - 1);
         classInfoDao.updateByPrimaryKeySelective(classInfo);

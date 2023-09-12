@@ -40,7 +40,7 @@ public class ClassInfoController {
         }
 
         // 1. 判断一下该用户有没有选过这门课
-        XuankeInfo info = xuankeInfoService.find(classInfo.getName(), classInfo.getTeacherId(), user.getId());
+        XuankeInfo info = xuankeInfoService.find(classInfo.getName(), classInfo.getTeacher(), user.getId());
         if (ObjectUtil.isNotEmpty(info)) {
             throw new CustomException("-1", "您已经选过该门课，请不要重复选择");
         }

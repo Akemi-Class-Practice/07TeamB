@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>支払い完了</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+		}
+
+		h1 {
+			font-size: 24px;
+			color: #333;
+			margin-bottom: 10px;
+		}
+
+		p {
+			font-size: 18px;
+			color: #666;
+			margin-bottom: 20px;
+			text-align: center;
+		}
+
+		a {
+			font-size: 18px;
+			color: #007bff;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+
+		a:hover {
+			color: #0056b3;
+		}
+
+		#countdown {
+			font-size: 36px;
+			font-weight: bold;
+			color: #333;
+		}
+	</style>
+</head>
+
+
+<body>
+	<img src="../img/logo_black.jpg" width="100" height="80">
+	<br />
+	<h1>支払いが完了しました！</h1>
+	<!--<p>お支払いが正常に完了しました。</p>-->
+	<p><span id="countdown">10</span> 秒後に<a href="xuankeInfo.html">注文一覧</a>に自動的に戻ります。</p>
+
+	<script>
+		// カウントダウンの要素を取得
+		var countdownElement = document.getElementById("countdown");
+
+		// 初期のカウントダウン値を設定
+		var countdown = 10;
+
+		// カウントダウンを開始する関数
+		function startCountdown() {
+			if (countdown > 0) {
+				countdown--;
+				countdownElement.textContent = countdown;
+				setTimeout(startCountdown, 1000); // 1秒ごとにカウントダウンを更新
+			} else {
+				// カウントダウン終了後、ホームページに自動的に戻る
+				window.location.href = "xuankeInfo.html";
+			}
+		}
+
+		// カウントダウンを開始
+		startCountdown();
+	</script>
+</body>
+
+</html>

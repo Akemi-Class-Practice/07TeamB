@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Built-By: overthemoon
+Build-Jdk: 17.0.7
+Implementation-Title: Beeeee
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: com.example
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
+ -starter-parent/Beeeee
+Created-By: Maven Integration for Eclipse
+

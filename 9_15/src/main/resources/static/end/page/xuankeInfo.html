@@ -173,17 +173,22 @@
 														<button v-if="user.level === 3 && obj.status === '払い済み'"
 															class="btn btn-sm btn-primary"
 															@click="del(obj.id)">削除</button>
+															
+														<button v-if="user.level === 3 && obj.status !== '払い済み'"
+															:disabled="obj.status === '払い済み'"
+															class="btn btn-sm btn-primary"
+															@click="toBuy(obj)">購入</button>
+
+														<button v-if="user.level === 3 && obj.status === '払い済み'"
+															:disabled="obj.status === '払い済み'"
+															class="btn btn-sm btn-primary">買った</button>
 
 														<!--<button v-if="user.level === 3"
 															:disabled="obj.status === '払い済み'"
 															class="btn btn-sm btn-primary"
 															@click="kaike(obj)">購入</button>-->
 
-														<!-- 在模板中 -->
-														<button v-if="user.level === 3"
-															:disabled="obj.status === '払い済み'"
-															class="btn btn-sm btn-primary"
-															@click="redirectToCheckout(obj)">購入</button>
+													
 
 													</td>
 												</tr>
@@ -288,7 +293,7 @@
 				},
 
 				// 在点击 "購入" 按钮的事件处理函数中
-				redirectToCheckout(obj) {
+				toBuy(obj) {
 					// 使用 window.location.href 跳转到 checkSelect.html 页面
 					window.location.href = 'checkSelect.html';
 					// this.$router.push('/checkout');

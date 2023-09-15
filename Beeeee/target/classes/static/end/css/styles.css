@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.payment-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 800px; 
+}
+
+.payment-column {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin: 10px; 
+}
+
+.payment-option {
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    margin: 10px 0;
+}
+
+.payment-option:hover {
+    transform: scale(1.05);
+}
+
+.payment-option img {
+    width: 100px; /* 设置图标的宽度 */
+    height: 100px; /* 设置图标的高度 */
+    margin-bottom: 10px;
+}
+
+.payment-option p {
+    font-size: 16px;
+    color: #333;
+}
+    /* 标题样式 */
+    section h2 {
+        font-size: 24px;
+        color: #333; /* 文本颜色 */
+        text-align: center; /* 文本居中 */
+        margin-bottom: 20px; /* 底部间距 */
+    }
+
+    /* 按钮样式 */
+    #payment-button a.payment-button {
+        display: inline-block;
+        background-color: #007BFF; /* 按钮背景颜色 */
+        color: #fff; /* 按钮文本颜色 */
+        font-size: 18px;
+        padding: 10px 20px; /* 按钮内边距 */
+        text-decoration: none;
+        border-radius: 5px; /* 圆角边框 */
+        transition: background-color 0.3s ease; /* 平滑过渡 */
+    }
+
+    #payment-button a.payment-button:hover {
+        background-color: #0056b3; /* 按钮悬停时的背景颜色 */
+    }
+
+
+
+

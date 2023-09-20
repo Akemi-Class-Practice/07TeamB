@@ -1,6 +1,8 @@
 package com.example.service;
 
 import cn.hutool.core.util.ObjectUtil;
+
+import com.example.common.PasswordHashUtil;
 import com.example.common.ResultCode;
 import com.example.dao.AdminInfoDao;
 import com.example.entity.Account;
@@ -11,6 +13,10 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -26,7 +32,7 @@ public class AdminInfoService {
         AdminInfo adminInfo = adminInfoDao.findByNameAndPass(name, password);
 
         if (ObjectUtil.isEmpty(adminInfo)) {
-            throw new CustomException("-1", "ユーザー名、密码或角色错误");
+            throw new CustomException("-1", "ユーザー名、パスワード、または役割の選択が誤っています。");
         }
 
         return adminInfo;
@@ -51,9 +57,16 @@ public class AdminInfoService {
             throw new CustomException(ResultCode.USER_EXIST_ERROR);
         }
         if (ObjectUtil.isEmpty(adminInfo.getPassword())) {
-            // 没有密码的时候，给它初始化一个初始密码123456
-            adminInfo.setPassword("teamb");
-        }
+            // 没有密码的时候，给它初始化一个初始密码teamb    	
+//            adminInfo.setPassword("teamb");
+//        }
+        	String hashedPassword = PasswordHashUtil.hashPassword("teamb");
+        	adminInfo.setPassword(hashedPassword);
+        	}
+        	
+        
+    
+
         
      // 默认管理员设置 level 为 1
         // 也可以设置数据库管理员表level默认值为1

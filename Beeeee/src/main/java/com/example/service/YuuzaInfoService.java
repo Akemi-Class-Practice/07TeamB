@@ -1,6 +1,8 @@
 package com.example.service;
 
 import cn.hutool.core.util.ObjectUtil;
+
+import com.example.common.PasswordHashUtil;
 import com.example.common.ResultCode;
 import com.example.dao.YuuzaInfoDao;
 
@@ -27,7 +29,7 @@ public class YuuzaInfoService {
         // 去数据库里根据ユーザー名和密码查询ユーザー情報
         YuuzaInfo yuuzaInfo = yuuzaInfoDao.findByNameAndPassword(name, password);
         if (ObjectUtil.isEmpty(yuuzaInfo)) {
-            throw new CustomException("-1", "ユーザー名、密码或者角色买择错误");
+            throw new CustomException("-1", "ユーザー名、パスワード、または役割の選択が誤っています。");
         }
 
         return yuuzaInfo;
@@ -62,8 +64,11 @@ public class YuuzaInfoService {
         }
         // 2. 如果没有填密码，初始化一个默认密码
         if (ObjectUtil.isEmpty(yuuzaInfo.getPassword())) {
-            yuuzaInfo.setPassword("123456");
-        }
+//            yuuzaInfo.setPassword("123456");
+//        }
+        	String hashedPassword = PasswordHashUtil.hashPassword("123456");
+        	yuuzaInfo.setPassword(hashedPassword);
+        	}
         
      // 设置默认的 level 为 3
         yuuzaInfo.setLevel(3);

@@ -41,9 +41,9 @@ public class OpenBrowser implements CommandLineRunner {
             } else if (os.contains("windows")) {
                 // Windows系统下打开默认浏览器
                 Runtime.getRuntime().exec("cmd   /c   start   " + url);
-            } else if (os.contains("linux")) {
-                // Linux系统下打开默认浏览器（可以根据具体的Linux发行版调整命令）
-                Runtime.getRuntime().exec("xdg-open " + url);
+//            } else if (os.contains("linux")) {
+//                // Linux系统下打开默认浏览器（可以根据具体的Linux发行版调整命令）
+//                Runtime.getRuntime().exec("xdg-open " + url);
             } else {
                 logger.error("不支持的操作系统。");
             }

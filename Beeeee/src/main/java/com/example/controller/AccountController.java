@@ -3,6 +3,7 @@ package com.example.controller;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.crypto.digest.BCrypt;
 
+import com.example.common.PasswordComplex;
 import com.example.common.PasswordHashUtil;
 import com.example.common.Result;
 import com.example.entity.Account;
@@ -152,6 +153,13 @@ public class AccountController {
 	    if (ObjectUtil.isEmpty(user.getName()) || ObjectUtil.isEmpty(user.getPassword()) || ObjectUtil.isEmpty(user.getLevel())) {
 	        return Result.error("-1", "入力情報を完了してください");
 	    }
+	    
+	 // 验证密码复杂性
+//	    String password = user.getPassword();
+//	    if (!PasswordComplex.isPasswordComplex(password)) {
+//	        return Result.error("-2", "パスワードは大文字、小文字、数字、特殊文字を少なくとも1つ含める必要があります");
+//	    }
+	    
 	    Integer level = user.getLevel();
 	    if (3 == level) {
 	        // 使用SHA-256哈希函数对密码进行加密

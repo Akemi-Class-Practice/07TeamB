@@ -51,9 +51,6 @@ public class YuuzaInfoService {
         }
         return list;
 
-//        // 方式二：使用sql关联查询语句直接查
-//        return yuuzaInfoDao.findAllJoinXueyuan();
-//
     }
 
     public void add(YuuzaInfo yuuzaInfo) {

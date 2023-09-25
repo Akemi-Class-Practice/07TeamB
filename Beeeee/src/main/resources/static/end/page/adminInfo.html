@@ -143,16 +143,14 @@
 											<thead>
 												<tr>
 													<th>名前</th>
-
 													<th>メール</th>
 													<th>操作</th>
 												</tr>
 											</thead>
 											<tbody v-for="obj in tableData">
 												<tr>
-													<td>{{obj.name}}</td>
-
-													<td>{{obj.email}}</td>
+													<td>{{ obj.name }}</td>
+													<td>{{ obj.email }}</td>
 													<td>
 														<button class="btn btn-primary btn-sm"
 															@click="init(obj)">編集</button>

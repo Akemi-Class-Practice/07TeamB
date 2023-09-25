@@ -25,16 +25,19 @@ public class AdminInfoController {
         adminInfoService.update(adminInfo);
         return Result.success();
     }
+    
     @GetMapping
     public Result findAll() {
         List<AdminInfo> list = adminInfoService.findAll();
         return Result.success(list);
     }
+    
     @DeleteMapping("/{id}")
     public Result deleteById(@PathVariable Long id) {
         adminInfoService.deleteById(id);
         return Result.success();
     }
+    
     @GetMapping("/page")
     public Result findPage(@RequestParam Integer pageNum, @RequestParam Integer pageSize) {
         PageInfo<AdminInfo> info = adminInfoService.findPage(pageNum, pageSize);

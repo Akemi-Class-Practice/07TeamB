@@ -1,0 +1,77 @@
+#server:
+#  port: 8888
+#
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    username: postgres
+#    password: 123456
+#    url: jdbc:postgresql://localhost:5433/Beeeee
+#      
+#  thymeleaf:
+#    cache: false # 閉じる缓存
+#  servlet:
+#    multipart:
+#      max-file-size: 100MB
+#      max-request-size: 100MB
+#
+#mybatis:
+#  mapper-locations: classpath:mapper/*.xml
+#  type-aliases-package: com.example.entity
+#  configuration:
+#    map-underscore-to-camel-case: true # PostgreSQL通常使用snake_case，这将自动映射到Java的camelCase
+#
+#pagehelper:
+#  helper-dialect: postgresql # PostgreSQL数据库方言
+#  reasonable: true
+#  support-methods-arguments: true
+#  params: count=countSql
+
+
+
+server:
+  port: 8888
+  connection-timeout: 60000
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 12345678
+    url: jdbc:mysql://localhost:3306/teamb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
+  thymeleaf:
+    cache: false #閉じる缓存
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+
+logging:
+  file: log/my.log
+
+# NOTE 启动项目后自动打开登录界面
+open:
+  browser:
+    url: 'http://localhost:8888/end/page/login.html'
+  
+  
+##mac  
+#open:
+#  browser:
+#    command: 'open -a "Google Chrome" http://localhost:8888/end/page/login.html'
+
+
+# 在构建工具的配置中禁用 Source Map 生成
+#myapp:
+#  generate-source-map: false
+

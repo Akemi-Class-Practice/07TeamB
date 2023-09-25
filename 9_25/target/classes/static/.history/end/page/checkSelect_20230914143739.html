@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* .payment-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 800px;
+        } */
+
+        .payment-column {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            margin: 10px;
+        }
+
+        .payment-option {
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            margin: 10px 0;
+        }
+
+        .payment-option:hover {
+            transform: scale(1.05);
+        }
+
+        /* .payment-option img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        } */
+
+        .payment-option p {
+            font-size: 16px;
+            color: #333;
+        }
+
+        section h2 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+            white-space: nowrap;
+        }
+
+        #payment-button a.payment-button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        #payment-button a.payment-button:hover {
+            background-color: #0056b3;
+        }
+
+        .payment-column {
+            width: 200px;
+            height: 200px;
+
+
+        }
+
+        .payment-column img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <title>決済情報</title>
+</head>
+
+<body>
+    <div class="payment-container">
+        <div class="payment-column">
+            <div class="payment-option">
+                <img src="../img/creditcard.jpg" alt="クレジットカード">
+                <p>クレジットカード</p>
+            </div>
+            <div class="payment-option">
+                <img src="../img/cvs.jpg" alt="コンビニ">
+                <p>コンビニ決済</p>
+            </div>
+            <div class="payment-option">
+                <img src="../img/paypay.jpg" alt="PayPay">
+                <p>PayPay</p>
+            </div>
+            <div class="payment-option">
+                <img src="../img/bank.jpg" alt="銀行">
+                <p>銀行振込</p>
+            </div>
+        </div>
+        <div>
+            <section>
+                <h2>支払い方法を選択してください</h2>
+            </section>
+            <section id="payment-button">
+                <a class="payment-button" th:href="">支払いに進む</ a>
+            </section>
+            <div class="payment-container">
+                <button id="payment-button" onclick="redirectToXuanKeInfo()">戻る</button>
+                <div id="payment-status"></div>
+            </div>
+            <script>
+                function redirectToXuanKeInfo() {
+                    window.location.href = 'xuankeInfo.html';
+                }
+            </script>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

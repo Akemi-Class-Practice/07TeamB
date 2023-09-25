@@ -1,0 +1,56 @@
+<script>
+							function msg(type, msg) {
+								Vue.prototype.$message({
+									type: type, // success（成功）、warning（警告）, error(エラー)
+									message: msg,
+									duration: 2000,
+									offset: 100,
+									center: true,
+								})
+							}
+
+							new Vue({
+								el: '#wrapper',
+								data: {
+									user: {},
+									authority: [],
+									objs: [],
+									entity: {},
+									tableData2: []
+								},
+								created: function () {
+									const menuHeight = document.getElementById("main-menu").getElementsByTagName('li').length * 53;
+									const bodyHeight = document.getElementsByTagName("body")[0].clientHeight;
+									document.getElementById("nav-id").style.height = (menuHeight > bodyHeight ? menuHeight : bodyHeight) + 'px';
+
+									this.user = JSON.parse(localStorage.getItem('user'));
+
+								},
+								methods: {
+									loadTable() {
+										let url = "/inquiryInfo";
+										if (this.search) {
+											url = url + "/" + this.search;
+										}
+										axios.get(url).then(res => {
+											if (res.data.code === '0') {
+												this.tableData2 = res.data.data;
+											} else {
+												msg("error", res.data.msg)
+											}
+										})
+									},
+
+									send() {
+										axios.post("/send", this.entity).then(res => {
+											if (res.data.code === '0') {
+												// TODO: window.location = "/end/page/login.html";
+											} else {
+												alert(res.data.msg);
+											}
+										})
+									}
+
+								}
+							});
+						</script>

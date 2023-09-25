@@ -69,3 +69,9 @@ open:
 #open:
 #  browser:
 #    command: 'open -a "Google Chrome" http://localhost:8888/end/page/login.html'
+
+
+# 在构建工具的配置中禁用 Source Map 生成
+#myapp:
+#  generate-source-map: false
+

@@ -15,6 +15,9 @@
 	<link href="../css/custom-styles.css" rel="stylesheet" />
 	<link href="../css/element/index.css" rel="stylesheet" />
 
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+
 	<style>
 		[v-cloak] {
 			display: none;
@@ -100,10 +103,10 @@
 										<a href="javascript:void(0)" @click="personalPage"><i
 												class="fa fa-user"></i>個人情報</a>
 									</li>
-									
-									 <li>
-									<a href="inquiry.html"><i class="fa fa-pencil sub-icon-mg" aria-hidden="true"></i><span class="mini-sub-pro">お問い合わせ</span></a>
-								</li>
+									<li>
+										<a href="inquiry.html"><i class="fa fa-question-circle sub-icon-mg"
+												aria-hidden="true"></i><span class="mini-sub-pro">お問い合わせ</span></a>
+									</li>
 
 								</ul>
 							</li>
@@ -150,7 +153,7 @@
 
 													<th>受講者ID</th>
 
-													<th>支払い状態</th>
+													<th>授業状態</th>
 													<th v-if="user.level !== 1">操作</th>
 												</tr>
 											</thead>
@@ -166,14 +169,38 @@
 													<td>{{obj.yuuzaId}}</td>
 													<td>{{obj.status}}</td>
 													<td v-if="user.level !== 1">
+														<!--<button v-if="user.level === 3"
+															:disabled="obj.status === '払い済み'"
+															class="btn btn-sm btn-primary"
+															@click="del(obj.id)">キャンセル</button>-->
+
 														<button v-if="user.level === 3 && obj.status !== '払い済み'"
 															class="btn btn-sm btn-primary"
 															@click="del(obj.id)">キャンセル</button>
 
+														<!--<button v-if="user.level === 3"
+															:disabled="obj.status !== '払い済み'"
+															class="btn btn-sm btn-primary"
+															@click="del(obj.id)">削除</button>-->
+
 														<button v-if="user.level === 3 && obj.status === '払い済み'"
 															class="btn btn-sm btn-primary"
 															@click="del(obj.id)">削除</button>
-															
+
+
+														<!--<button v-if="user.level === 3"
+															:disabled="obj.status === '払い済み'"
+															class="btn btn-sm btn-primary"
+															@click="toBuy(obj)">購入</button>-->
+
+														<!-- 在模板中 -->
+														<!--<button v-if="user.level === 3"
+															:disabled="obj.status === '払い済み'"
+															class="btn btn-sm btn-primary"
+															@click="toBuy(obj)">購入</button>-->
+
+
+														<!-- 这是按钮部分 -->
 														<button v-if="user.level === 3 && obj.status !== '払い済み'"
 															:disabled="obj.status === '払い済み'"
 															class="btn btn-sm btn-primary"
@@ -183,12 +210,6 @@
 															:disabled="obj.status === '払い済み'"
 															class="btn btn-sm btn-primary">買った</button>
 
-														<!--<button v-if="user.level === 3"
-															:disabled="obj.status === '払い済み'"
-															class="btn btn-sm btn-primary"
-															@click="kaike(obj)">購入</button>-->
-
-													
 
 													</td>
 												</tr>
@@ -296,23 +317,17 @@
 				toBuy(obj) {
 					// 使用 window.location.href 跳转到 checkSelect.html 页面
 					window.location.href = 'checkSelect.html';
-					// this.$router.push('/checkout');
 					obj.status = "払い済み";
 					axios.put("/xuankeInfo", obj).then(res => {
 						if (res.data.code === '0') {
-							// msg("success", "払い済み： 授業が開始されました");
-							msg("success", "支払いインターフェースにジャンプ");
-							this.loadTable();
+							msg("success", "払い済み： 授業が開始されました");
+							window.location = "/end/page/checkSelect.html";
+							// this.loadTable();
 						} else {
 							msg("error", res.data.mgs);
 						}
 					})
-
 				},
-
-
-
-
 
 				logout() {
 					logout();

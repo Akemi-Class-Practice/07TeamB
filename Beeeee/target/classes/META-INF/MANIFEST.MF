@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: so
-Build-Jdk: 20.0.2
+Built-By: LIBERTY
+Build-Jdk: 17.0.7
 Implementation-Title: Beeeee
 Implementation-Version: 1.0-SNAPSHOT
 Implementation-Vendor-Id: com.example

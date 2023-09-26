@@ -36,7 +36,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-    password: 12345678
+    password: 123456
     url: jdbc:mysql://localhost:3306/teamb?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false&serverTimezone=GMT%2b8&allowPublicKeyRetrieval=true
   thymeleaf:
     cache: false #閉じる缓存

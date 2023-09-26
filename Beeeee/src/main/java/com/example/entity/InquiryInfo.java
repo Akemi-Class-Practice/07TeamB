@@ -14,6 +14,8 @@ public class InquiryInfo {
     private String title;
     @Column(name = "content")
     private String content;
+    @Column(name = "contact")
+    private String contact;
     
     public Long getId() {
         return id;
@@ -37,6 +39,14 @@ public class InquiryInfo {
 
     public void setContent(String content) {
         this.content = content;
+    }
+    
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
 
